@@ -212,7 +212,7 @@ app.post('/ventas', async (req, res) => {
       cliente: cliente.rows[0]
     };
 
-    console.log("📤 Enviando a SQS:", payload);
+    console.log("Enviando a SQS:", payload);
 
     await sqs.sendMessage({
       QueueUrl: QUEUE!,
