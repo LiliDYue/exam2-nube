@@ -19,7 +19,7 @@ app.post('/generate', (req, res) => {
 
 // ACTUALIZAR METADATA (simulado)
 app.post('/metadata/update', (req, res) => {
-  console.log("🔄 Actualizando metadata:", req.body);
+  console.log("Actualizando metadata:", req.body);
 
   res.json({ message: "Metadata actualizada" });
 });
