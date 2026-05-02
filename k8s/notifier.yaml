@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notifier
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notifier
+  template:
+    metadata:
+      labels:
+        app: notifier
+    spec:
+      containers:
+        - name: notifier
+          image: liliaph7/notifier:latest
+          env:
+            - name: TOPIC_ARN
+              value: "arn:aws:sns:us-east-1:984034935132:ventas-topic"

@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: api
+          image: liliaph7/api:latest
+          ports:
+            - containerPort: 3000
+          env:
+            - name: DB_HOST
+              value: "terraform-20260502002828213500000002.cw791jmibie0.us-east-1.rds.amazonaws.com"
+
+            - name: DB_USER
+              value: "postgres"
+
+            - name: DB_PASSWORD
+              value: "password12366677"
+
+            - name: DB_NAME
+              value: "postgres"
+
+            - name: QUEUE_URL
+              value: "https://sqs.us-east-1.amazonaws.com/984034935132/ventas-queue"
+            - name: AWS_REGION
+              value: "us-east-1"
